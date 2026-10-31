@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+.f-sans {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.f-mono {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.lbl {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: #7d8187;
+}
+
+.theme-light .lbl {
+  color: #64748b;
+}
+
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.sc::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.sc::-webkit-scrollbar-thumb {
+  background: #363a3f;
+  border-radius: 9999px;
+}
+
+.theme-light .sc::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+.sc::-webkit-scrollbar-thumb:hover {
+  background: #474b52;
+}
+
+.theme-light .sc::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Cytoscape Canvas styling */
+.cytoscape-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a;
+}
+
+.theme-light .cytoscape-container {
+  background: #f8fafc;
+}

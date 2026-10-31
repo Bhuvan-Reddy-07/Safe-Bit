@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: safebit-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - SAFEBIT_API_HOST=0.0.0.0
+      - SAFEBIT_API_PORT=8000
+      - SAFEBIT_SLA_MAX_LATENCY_MS=20.0
+    volumes:
+      - ./data:/app/data
+      - ./models/checkpoints:/app/models/checkpoints
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: safebit-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://backend:8000
+    depends_on:
+      - backend
+    restart: unless-stopped

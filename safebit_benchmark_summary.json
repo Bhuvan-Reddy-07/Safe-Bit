@@ -1,0 +1,24 @@
+{
+  "framework": "Safe-Bit Financial Crime Defense",
+  "device": "cpu",
+  "benchmark_metrics": {
+    "baseline_pr_auc": 0.2712,
+    "safebit_hybrid_pr_auc": 0.8345,
+    "pr_auc_gain": 0.5633,
+    "baseline_roc_auc": 0.849,
+    "safebit_roc_auc": 0.9907
+  },
+  "feedzai_concept_drift": {
+    "baseline_drift_pr_auc": 1.0,
+    "safebit_drift_pr_auc": 1.0,
+    "robustness_gain": 0.0
+  },
+  "latency_sla": {
+    "mean_ms": 3.43,
+    "p50_ms": 3.04,
+    "p90_ms": 5.22,
+    "p95_ms": 5.91,
+    "p99_ms": 7.99,
+    "sla_passed": true
+  }
+}
